@@ -15,6 +15,10 @@ This is a mini location app built with [React Native](https://reactnative.dev/) 
    ```bash
    git clone https://github.com/your-username/mini-location-app.git
    cd mini-location-app
-npm install
-npm start --ios
-npm start --android
+
+2. Clone the repository:
+
+   ```bash
+      npm install
+      npm start --ios
+      npm start --android
