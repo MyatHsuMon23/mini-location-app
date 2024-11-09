@@ -32,24 +32,24 @@ const CustomButton = ({
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#87CEEB", // Sky blue background color
-    borderRadius: 16, // rounded corners
-    minHeight: 62, // height of the button
+    backgroundColor: "#87CEEB",
+    borderRadius: 16,
+    minHeight: 62,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: 20, // Padding inside the button
+    paddingHorizontal: 20,
   },
   buttonLoading: {
-    opacity: 0.5, // Apply opacity when loading
+    opacity: 0.5,
   },
   text: {
-    color: "#fff", // White text color
-    fontFamily: "Poppins-SemiBold", // Assuming this is the font you want to use
+    color: "#fff",
+    fontFamily: "Poppins-SemiBold",
     fontSize: 18,
   },
   loader: {
-    marginLeft: 10, // Space between text and loader
+    marginLeft: 10,
   },
 });
 

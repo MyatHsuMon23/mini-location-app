@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from "react-native";
-import { icons } from "../constants"; // Assuming you have an icons object
+import { icons } from "../constants"; 
 
 const FormField = ({
   title,
@@ -54,15 +54,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     height: 50,
     paddingHorizontal: 16,
-    backgroundColor: "#f3f3f3", // Sky blue color
+    backgroundColor: "#f3f3f3", 
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: "#66B3FF", // Light blue border color to match the background
+    borderColor: "#66B3FF",
     alignItems: "center",
   },
   input: {
     flex: 1,
-    color: "#000", // Black text for better contrast
+    color: "#000",
     fontSize: 16,
     fontWeight: "600",
   },

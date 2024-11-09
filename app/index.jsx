@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, View, StyleSheet, ActivityIndicator, Text, Image, TouchableOpacity } from "react-native";
+import { SafeAreaView, View, StyleSheet, ActivityIndicator, Text } from "react-native";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useGlobalContext } from "../context/GlobalProvider";
@@ -13,26 +13,22 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [selectedLocation, setSelectedLocation] = useState(null);
 
-  // Redirect to SignIn page if not logged in and auth check is complete
   useEffect(() => {
     if (!authLoading && !isLogged) {
       router.replace("/signIn");
     }
   }, [authLoading, isLogged]);
 
-  // Function to fetch data from API
   const fetchData = async () => {
     try {
       setLoading(true);
       const accessToken = await AsyncStorage.getItem("accessToken");
-
       const response = await axios.get(`${process.env.EXPO_PUBLIC_API_URL}/locations`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-
-      setData(response.data); // Adjust this to match your API response structure
+      setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -40,7 +36,6 @@ const Home = () => {
     }
   };
 
-  // Fetch data when the component mounts
   useEffect(() => {
     fetchData();
   }, []);
@@ -49,13 +44,11 @@ const Home = () => {
     return <ActivityIndicator size="large" color="#0000ff" />;
   }
 
-  // Coordinates for the center (925 Bush St, San Francisco, CA 94109)
   const centerCoordinates = {
     latitude: 37.7876,
     longitude: -122.4166,
   };
 
-  // Handle map tap to update selectedLocation
   const handleMapPress = (e) => {
     const coordinate = e.nativeEvent.coordinate;
     setSelectedLocation({
@@ -66,7 +59,6 @@ const Home = () => {
     });
   };
 
-  // Handle marker press to show detailed info
   const handleMarkerPress = (location) => {
     setSelectedLocation(location);
   };
@@ -85,7 +77,7 @@ const Home = () => {
               latitudeDelta: 0.05,
               longitudeDelta: 0.05,
             }}
-            onPress={handleMapPress} // Detect map taps
+            onPress={handleMapPress}
           >
             {data.map((location, index) => (
               <Marker
@@ -96,7 +88,7 @@ const Home = () => {
                 }}
                 title={location.name}
                 description={location.description}
-                onPress={() => handleMarkerPress(location)} // Show detailed info when tapped
+                onPress={() => handleMarkerPress(location)}
               />
             ))}
           </MapView>
@@ -104,7 +96,7 @@ const Home = () => {
           {selectedLocation && (
             <View style={styles.detailsContainer}>
               <View style={styles.card}>
-              <View style={styles.cardContent}>
+                <View style={styles.cardContent}>
                   <Text style={styles.detailsTitle}>{selectedLocation.name}</Text>
                   <Text style={styles.detailsDescription}>{selectedLocation.description}</Text>
                 </View>
