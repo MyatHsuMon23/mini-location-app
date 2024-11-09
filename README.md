@@ -16,7 +16,7 @@ This is a mini location app built with [React Native](https://reactnative.dev/) 
    git clone https://github.com/your-username/mini-location-app.git
    cd mini-location-app
 
-2. Clone the repository:
+2. Install the plugins and run:
 
    ```bash
       npm install
