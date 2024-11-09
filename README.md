@@ -13,7 +13,7 @@ This is a mini location app built with [React Native](https://reactnative.dev/) 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/mini-location-app.git
+   git clone https://github.com/MyatHsuMon23/mini-location-app.git
    cd mini-location-app
 
 2. Install the plugins and run:
